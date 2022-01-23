@@ -10,6 +10,13 @@ var httpsendport = config.httpsendport;
 var httpsendaddress = config.httpsendaddress;
 
 console.log(config);
+console.log(mode);
+console.log(amqphost);
+console.log(queue);
+console.log(httplistenport);
+console.log(httplistenaddress);
+console.log(httpsendport);
+console.log(httpsendaddress);
 
 var amqpconnection = require('amqplib').connect(amqphost);
 
