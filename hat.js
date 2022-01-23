@@ -8,6 +8,9 @@ var httplistenport = config.httplistenport;
 var httplistenaddress = config.httplistenaddress;
 var httpsendport = config.httpsendport;
 var httpsendaddress = config.httpsendaddress;
+
+console.log(config);
+
 var amqpconnection = require('amqplib').connect(amqphost);
 
 function amqpSend(payload) {
