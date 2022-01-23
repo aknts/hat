@@ -86,8 +86,7 @@ const server = http.createServer((req, res) => {
 		amqpSend(data);
 	}
 	if (mode == "1") {
-		
-		httpSend(msg.content.toString());
+		httpSend(data.toString());
 	}
 	res.statusCode = 200;
 	res.end();
