@@ -8,7 +8,6 @@ var httplistenport = config.httplistenport;
 var httplistenaddress = config.httplistenaddress;
 var httpsendport = config.httpsendport;
 var httpsendaddress = config.httpsendaddress;
-var testpayload = { "payload" : "testdata" };
 
 console.log(config);
 console.log(mode);
@@ -87,7 +86,8 @@ const server = http.createServer((req, res) => {
 		amqpSend(data);
 	}
 	if (mode == "1") {
-		httpSend(testpayload.toString());
+		
+		httpSend(msg.content.toString());
 	}
 	res.statusCode = 200;
 	res.end();
