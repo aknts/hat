@@ -15,7 +15,8 @@
     "amqp",
     "transcoder",
     "converter",
-    "gateway"
+    "gateway",
+    "proxy"
   ],
   "author": "aknts",
   "license": "ISC",
