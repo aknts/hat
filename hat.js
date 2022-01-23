@@ -1,6 +1,13 @@
 //Load HTTP module
 const http = require("http");
-
+const config = JSON.parse(require('./config.js'));
+var mode = config.mode;
+var amqphost = config.amqphost;
+var queue = config.amqpqueue;
+var httplistenport = config.httplistenport;
+var httplistenaddress = config.httplistenaddress;
+var httpsendport = config.httpsendport;
+var httpsendaddress = config.httpsendaddress;
 var amqpconnection = require('amqplib').connect(amqphost);
 
 function amqpSend(payload) {
@@ -17,8 +24,8 @@ function amqpSend(payload) {
 // HTTP Request
 function httpSend (body) {
 	const options = {
-	  hostname: 'localhost',
-	  port: 5555,
+	  hostname: httpsendaddress,
+	  port: httpsendport,
 	  method: 'POST',
 	  headers: {
 		'Content-Type': 'application/json',
@@ -65,13 +72,18 @@ const server = http.createServer((req, res) => {
   })
   req.on('end', () => {
     console.log(JSON.parse(data));
-	amqpSend(data);
+	if (mode == "0"){
+		amqpSend(data);
+	}
+	if (mode == "1") {
+		httpSend(msg.content.toString());
+	}
 	res.statusCode = 200;
 	res.end();
   })
 })
 
 //listen for request on port 3000, and as a callback function have the port listened on logged
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+server.listen(httplistenport, httplistenaddress, () => {
+  console.log(`Server running at http://${httplistenaddress}:${port}/`);
 });
