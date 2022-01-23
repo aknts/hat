@@ -1,7 +1,7 @@
 //Load HTTP module
 const http = require("http");
 const hostname = '127.0.0.1';
-const port = 30000;
+const port = 3000;
 var queue = 'hello';
 //var amqp = require('amqplib/callback_api');
 var amqpconnection = require('amqplib').connect('amqps://blutynvx:p8WJQ3zycShyrUnBWhGL8QRD-30HEvmZ@roedeer.rmq.cloudamqp.com/blutynvx');
