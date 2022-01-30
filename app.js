@@ -1,7 +1,19 @@
+//Preload object count function
+function ObjectLength( object ) {
+    var length = 0;
+    for( var key in object ) {
+        if( object.hasOwnProperty(key) ) {
+            ++length;
+        }
+    }
+    return length;
+};
+
 //Load HTTP module
 const http = require("http");
-const config = JSON.parse(Buffer.from(require('./config.js'), 'base64').toString());
+//const config = JSON.parse(Buffer.from(require('./config.js'), 'base64').toString());
 //var config = require('./config.json');
+/*
 var mode = config.appsettings.mode;
 var amqphost = config.appsettings.amqphost;
 var queue = config.appsettings.amqpqueue;
@@ -9,6 +21,14 @@ var httplistenport = config.appsettings.httplistenport;
 var httplistenaddress = config.appsettings.httplistenaddress;
 var httpsendport = config.appsettings.httpsendport;
 var httpsendaddress = config.appsettings.httpsendaddress;
+*/
+var mode = process.env.mode;
+var amqphost = process.env.amqphost;
+var queue = process.env.amqpqueue;
+var httplistenport = process.env.httplistenport;
+var httplistenaddress = process.env.httplistenaddress;
+var httpsendport = process.env.httpsendport;
+var httpsendaddress = process.env.httpsendaddress;
 
 console.log(config);
 console.log(mode);
