@@ -2,13 +2,13 @@
 const http = require("http");
 const config = JSON.parse(Buffer.from(require('./config.js'), 'base64').toString());
 //var config = require('./config.json');
-var mode = config.mode;
-var amqphost = config.amqphost;
-var queue = config.amqpqueue;
-var httplistenport = config.httplistenport;
-var httplistenaddress = config.httplistenaddress;
-var httpsendport = config.httpsendport;
-var httpsendaddress = config.httpsendaddress;
+var mode = config.appsettings.mode;
+var amqphost = config.appsettings.amqphost;
+var queue = config.appsettings.amqpqueue;
+var httplistenport = config.appsettings.httplistenport;
+var httplistenaddress = config.appsettings.httplistenaddress;
+var httpsendport = config.appsettings.httpsendport;
+var httpsendaddress = config.appsettings.httpsendaddress;
 
 console.log(config);
 console.log(mode);
