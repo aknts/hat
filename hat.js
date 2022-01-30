@@ -1,6 +1,7 @@
 //Load HTTP module
 const http = require("http");
-var config = require('./config.json');
+const config = JSON.parse(Buffer.from(require('./config.js'), 'base64').toString());
+//var config = require('./config.json');
 var mode = config.mode;
 var amqphost = config.amqphost;
 var queue = config.amqpqueue;
