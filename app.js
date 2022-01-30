@@ -30,7 +30,7 @@ var httplistenaddress = process.env.httplistenaddress;
 var httpsendport = process.env.httpsendport;
 var httpsendaddress = process.env.httpsendaddress;
 
-console.log(config);
+//console.log(config);
 console.log(mode);
 console.log(amqphost);
 console.log(queue);
